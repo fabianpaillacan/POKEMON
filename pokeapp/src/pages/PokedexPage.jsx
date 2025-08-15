@@ -161,7 +161,7 @@ function PokeDex() {
                       </span>
                       <div className="flex items-center gap-4">
                         <span className="text-slate-100 font-bold text-xl min-w-[3rem] text-right">
-                          {stat.base_stat}
+                          {stat.base_stat} / 255
                         </span>
                         <div className="w-2 h-2 rounded-full bg-slate-600"></div>
                       </div>
