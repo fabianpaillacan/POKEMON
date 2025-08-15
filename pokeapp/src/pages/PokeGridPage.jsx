@@ -149,7 +149,7 @@ function PokeGrid() {
                 return (
                   <button 
                     key={pokemon.name} 
-                    className="group relative bg-black/70 rounded-lg border-2 border-cyan-400/50 p-4 transition-all duration-300 hover:border-pink-500 hover:scale-105 hover:rotate-1 shadow-lg hover:shadow-2xl"
+                    className="group relative bg-black/70 rounded-lg border-2 border-teal-400/50 p-4 transition-all duration-150 hover:border-white hover:scale-105 shadow-lg hover:shadow-2xl"
                     onClick={() => navigate(`/pokedex/${pokemonId}`)}
                     style={{
                       boxShadow: '0 0 20px rgba(0,255,255,0.2), inset 0 1px 0 rgba(255,255,255,0.1)'
