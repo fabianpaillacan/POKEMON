@@ -158,7 +158,7 @@ function PokeGrid() {
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-pink-500/0 group-hover:from-cyan-500/20 group-hover:to-pink-500/20 rounded-lg transition-all duration-300"></div>
                     
                     <div className="relative mb-4">
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg blur-sm group-hover:blur-none transition-all duration-300 border-stone-600 border-2"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg blur-sm group-hover:blur-none transition-all duration-300 border-white border-2"></div>
                       <img 
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
                         alt={pokemon.name}
@@ -172,7 +172,7 @@ function PokeGrid() {
                       {pokemon.name}
                     </h3>
 
-                    <div className="absolute top-2 right-2 z-20">
+                    <div className="absolute top-3 right-3 z-20">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
