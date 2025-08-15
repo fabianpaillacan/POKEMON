@@ -87,7 +87,7 @@ function PokeGrid() {
 
       <div className="relative z-10 p-8">
         <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent mb-4 drop-shadow-lg">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-white to-black bg-clip-text text-transparent mb-4 drop-shadow-lg">
            POKÉMON GRID
           </h1>
         </div>
