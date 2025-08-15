@@ -210,7 +210,7 @@ function PokeGrid() {
           <button 
             onClick={() => setPage(prev => Math.max(1, prev - 1))}
             disabled={page === 1}
-            className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-xl rounded-lg border-2 border-white/30 disabled:from-gray-700 disabled:to-gray-800 disabled:border-gray-600 disabled:text-gray-500 transition-all duration-300 hover:scale-105 disabled:hover:scale-100 shadow-lg hover:shadow-2xl"
+            className="group relative px-8 py-4 bg-slate-700/70 hover:bg-slate-600 text-white font-bold text-xl rounded-lg border-2 border-white/30 disabled:from-gray-700 disabled:to-gray-800 disabled:border-gray-600 disabled:text-gray-500 transition-all duration-300 hover:scale-105 disabled:hover:scale-100 shadow-lg hover:shadow-2xl"
             style={{
               boxShadow: '0 0 25px rgba(147,51,234,0.4)',
               textShadow: '0 0 10px rgba(0,0,0,0.8)'
@@ -242,7 +242,7 @@ function PokeGrid() {
           <button 
             onClick={() => setPage(prev => Math.min(totalPages, prev + 1))}
             disabled={page === totalPages}
-            className="group relative px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold text-xl rounded-lg border-2 border-white/30 disabled:from-gray-700 disabled:to-gray-800 disabled:border-gray-600 disabled:text-gray-500 transition-all duration-300 hover:scale-105 disabled:hover:scale-100 shadow-lg hover:shadow-2xl"
+            className="group relative px-8 py-4 bg-slate-700/70 hover:bg-slate-600 text-white font-bold text-xl rounded-lg border-2 border-white/30 disabled:from-gray-700 disabled:to-gray-800 disabled:border-gray-600 disabled:text-gray-500 transition-all duration-300 hover:scale-105 disabled:hover:scale-100 shadow-lg hover:shadow-2xl"
             style={{
               boxShadow: '0 0 25px rgba(59,130,246,0.4)',
               textShadow: '0 0 10px rgba(0,0,0,0.8)'
@@ -257,15 +257,9 @@ function PokeGrid() {
         <div className="text-center">
           <button
             onClick={() => navigate('/')}
-            className="inline-block relative bg-black/80 text-red-400 px-12 py-6 rounded-lg text-xl font-bold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 border-4 border-blue-900 shadow-2xl"
-            style={{
-              textShadow: '0 0 10px rgba(0,0,0,0.8)',
-              boxShadow: '0 0 30px rgba(255,255,255,0.3), inset 0 1px 0 rgba(255,255,255,0.4)'
-            }}
+            className="mx-auto bg-slate-700/70 hover:bg-slate-600 text-white px-8 py-4 rounded-2xl transition-all duration-300 font-medium backdrop-blur-sm border border-slate-600/50"
           >
-            <span className="relative z-10"> BACK TO LANDING </span>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg"></div>
-            <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-r from-cyan-500/20 to-pink-500/20 rounded-lg transition-opacity duration-300"></div>
+             BACK TO LANDING 
           </button>
         </div>
       </div>
