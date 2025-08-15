@@ -13,7 +13,6 @@ function PokeGrid() {
   const [favorites, setFavorites] = useState([]);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
 
-  // Cargar favoritos del localStorage al montar
   useEffect(() => {
     const savedFavorites = localStorage.getItem('pokemonFavorites');
     if (savedFavorites) {
@@ -21,7 +20,6 @@ function PokeGrid() {
     }
   }, []);
 
-  // Guardar favoritos en localStorage cuando cambien
   useEffect(() => {
     localStorage.setItem('pokemonFavorites', JSON.stringify(favorites));
   }, [favorites]);
@@ -34,7 +32,6 @@ function PokeGrid() {
     setLoading(true);
     try {
       const data = await getPokemons(page);
-      // Agregar ID real a cada pokemon
       const pokemonsWithId = data.results.map((pokemon, index) => ({
         ...pokemon,
         id: (page - 1) * 30 + index + 1
@@ -48,19 +45,16 @@ function PokeGrid() {
     }
   };
 
-  // Función para obtener ID real del pokemon
   const getPokemonId = (pokemon) => {
     return pokemon.id || pokemon.url.split('/').slice(-2, -1)[0];
   };
 
-  // Filtrar pokemons por búsqueda y favoritos
   const filteredPokemons = pokemons.filter(pokemon => {
     const matchesSearch = pokemon.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesFavorites = showOnlyFavorites ? favorites.includes(getPokemonId(pokemon)) : true;
     return matchesSearch && matchesFavorites;
   });
 
-  // Toggle favorito
   const toggleFavorite = (pokemonId) => {
     setFavorites(prev => {
       if (prev.includes(pokemonId)) {
@@ -71,7 +65,6 @@ function PokeGrid() {
     });
   };
 
-  // Limpiar búsqueda
   const clearSearch = () => {
     setSearchTerm('');
   };
@@ -91,28 +84,15 @@ function PokeGrid() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 relative overflow-hidden">
-      {/* Fondo con patrón retro */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="w-full h-full" style={{
-          backgroundImage: `
-            linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%),
-            linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%)
-          `,
-          backgroundSize: '20px 20px'
-        }}></div>
-      </div>
 
       <div className="relative z-10 p-8">
-        {/* Header con título */}
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent mb-4 drop-shadow-lg">
            POKÉMON GRID
           </h1>
         </div>
 
-        {/* Controles de búsqueda y favoritos */}
         <div className="max-w-4xl mx-auto mb-8">
-          {/* Barra de búsqueda */}
           <div className="mb-6">
             <div className="relative max-w-md mx-auto">
               <input
@@ -136,7 +116,6 @@ function PokeGrid() {
             </div>
           </div>
 
-          {/* Filtro de favoritos */}
           <div className="flex justify-center mb-6">
             <button
               onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
@@ -150,13 +129,11 @@ function PokeGrid() {
             </button>
           </div>
 
-          {/* Contador de resultados */}
           <div className="text-center text-cyan-400 font-mono mb-4">
             Showing {filteredPokemons.length} of {pokemons.length} Pokemon
           </div>
         </div>
 
-        {/* Grid de pokémons */}
         <div className="max-w-7xl mx-auto mb-12">
           {filteredPokemons.length === 0 ? (
             <div className="text-center py-12">
@@ -178,10 +155,8 @@ function PokeGrid() {
                       boxShadow: '0 0 20px rgba(0,255,255,0.2), inset 0 1px 0 rgba(255,255,255,0.1)'
                     }}
                   >
-                    {/* Efecto hover glow */}
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-pink-500/0 group-hover:from-cyan-500/20 group-hover:to-pink-500/20 rounded-lg transition-all duration-300"></div>
                     
-                    {/* Imagen del pokémon con efectos */}
                     <div className="relative mb-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg blur-sm group-hover:blur-none transition-all duration-300 border-stone-600 border-2"></div>
                       <img 
@@ -191,14 +166,12 @@ function PokeGrid() {
                       />
                     </div>
 
-                    {/* Nombre del pokémon */}
                     <h3 className="flex items-center justify-center text-lg font-bold capitalize text-center text-yellow-400 mb-2 tracking-wide group-hover:text-white transition-colors duration-300" style={{
                       textShadow: '0 0 8px rgba(255,255,0,0.5)'
                     }}>
                       {pokemon.name}
                     </h3>
 
-                    {/* Botón de favorito */}
                     <div className="absolute top-2 right-2 z-20">
                       <button
                         onClick={(e) => {
@@ -220,7 +193,6 @@ function PokeGrid() {
                       </button>
                     </div>
 
-                    {/* ID del pokémon */}
                     <div className="text-center">
                       <span className="text-cyan-400 font-mono text-sm bg-black/50 px-2 py-1 rounded border border-cyan-400/30" style={{
                         textShadow: '0 0 5px rgba(0,255,255,0.5)'
@@ -234,8 +206,6 @@ function PokeGrid() {
             </div>
           )}
         </div>
-
-        {/* Controles de paginación estilo arcade */}
         <div className="flex justify-center items-center gap-8 mb-12">
           <button 
             onClick={() => setPage(prev => Math.max(1, prev - 1))}
@@ -251,7 +221,6 @@ function PokeGrid() {
             {!page === 1 && <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-cyan-500/20 to-pink-500/20 rounded-lg transition-opacity duration-300"></div>}
           </button>
           
-          {/* Display de página estilo LED */}
           <div className="bg-black border-4 border-yellow-400 rounded-lg p-6 shadow-lg shadow-yellow-400/30">
             <div className="text-center">
               <div className="text-yellow-400 font-mono text-lg mb-2" style={{
@@ -285,7 +254,6 @@ function PokeGrid() {
           </button>
         </div>
 
-        {/* Botón de regreso */}
         <div className="text-center">
           <button
             onClick={() => navigate('/')}
