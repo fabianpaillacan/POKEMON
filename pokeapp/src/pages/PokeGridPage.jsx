@@ -100,7 +100,7 @@ function PokeGrid() {
                 placeholder="Search Pokemon..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 pl-12 bg-white/90 backdrop-blur-sm border-2 border-cyan-400 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-500/20 transition-all duration-300 shadow-lg"
+                className="w-full px-4 py-3 pl-12 bg-black/90 backdrop-blur-sm border-2 border-green-400 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-4 focus:ring-pink-500/20 transition-all duration-300 shadow-lg"
               />
               <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-cyan-500 text-xl">
                 <Search />
@@ -121,15 +121,15 @@ function PokeGrid() {
               onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
               className={`px-6 py-3 rounded-lg font-bold transition-all duration-300 ${
                 showOnlyFavorites
-                  ? 'bg-gradient-to-r from-pink-500 to-red-500 text-white shadow-lg shadow-pink-500/30'
-                  : 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/30'
+                  ? 'bg-red-500 text-white font-extralight'
+                  : 'bg-blue-500 text-white font-extralight '
               } hover:scale-105`}
             >
               {showOnlyFavorites ? 'Show All Pokemon' : 'Show Only Favorites'}
             </button>
           </div>
 
-          <div className="text-center text-cyan-400 font-mono mb-4">
+          <div className="text-center text-cyan-400 font-light mb-4">
             Showing {filteredPokemons.length} of {pokemons.length} Pokemon
           </div>
         </div>
