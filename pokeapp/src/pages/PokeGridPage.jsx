@@ -155,7 +155,7 @@ function PokeGrid() {
                       boxShadow: '0 0 20px rgba(0,255,255,0.2), inset 0 1px 0 rgba(255,255,255,0.1)'
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-pink-500/0 group-hover:from-cyan-500/20 group-hover:to-pink-500/20 rounded-lg transition-all duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-pink-500/0 group-black rounded-lg transition-all duration-300"></div>
                     
                     <div className="relative mb-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg blur-sm group-hover:blur-none transition-all duration-300 border-white border-2"></div>
