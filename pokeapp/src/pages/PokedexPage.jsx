@@ -112,20 +112,16 @@ function PokeDex() {
                 <div className="inline-flex items-center bg-slate-700/50 backdrop-blur-sm rounded-full px-4 py-2 border border-slate-600">
                   <span className="text-slate-300 text-lg font-mono">#{String(id).padStart(3, '0')}</span>
                 </div>
-              </div>
-            </div>
-
-            <div className="bg-slate-800/60 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50">
-              <h3 className="text-xl font-semibold text-slate-200 mb-6">Types</h3>
-              <div className="flex gap-3 justify-center">
-                {pokemon.types?.map((type, index) => (
+                <div className="mt-4">
+                  {pokemon.types?.map((type, index) => (
                   <span 
                     key={index}
-                    className={`${getTypeColor(type.type.name)} text-white px-6 py-3 rounded-2xl font-medium text-sm uppercase tracking-wider shadow-lg`}
+                    className={`${getTypeColor(type.type.name)} text-white px-6 py-3 rounded-2xl font-medium text-sm uppercase tracking-wider shadow-lg ml-2`}
                   >
                     {type.type.name}
                   </span>
                 ))}
+                </div>
               </div>
             </div>
 
@@ -160,10 +156,9 @@ function PokeDex() {
                         {stat.stat.name.replace('-', ' ')}
                       </span>
                       <div className="flex items-center gap-4">
-                        <span className="text-slate-100 font-bold text-xl min-w-[3rem] text-right">
-                          {stat.base_stat} / 255
+                        <span className="text-slate-100 font-bold text-xl min-w-[3rem] text-right flex flex-grow">
+                          {stat.base_stat} <p className='text-gray-400'>/255</p>
                         </span>
-                        <div className="w-2 h-2 rounded-full bg-slate-600"></div>
                       </div>
                     </div>
                     <div className="relative">
